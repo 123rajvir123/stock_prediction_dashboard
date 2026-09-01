@@ -1,93 +1,162 @@
 {% extends "base.html" %}
 
-{% block title %}Home - StockAI{% endblock %}
+{% block title %}StockAI — AI Market Intelligence{% endblock %}
 
 {% block content %}
 
-<!-- Live Market Overview Header -->
-<div class="row mb-5">
-    <div class="col-12">
-        <h5 class="text-secondary mb-3"><i class="bi bi-clock-history"></i> Real-Time Indices</h5>
-        <div class="row g-3">
-            {% for name, index in indices.items() %}
-            <div class="col-md-6 col-xl-3">
-                <div class="card p-3 shadow-sm border-0">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="text-secondary fw-semibold">{{ name }}</span>
-                        {% if index.change >= 0 %}
-                        <span class="badge badge-trend-up rounded-pill"><i class="bi bi-caret-up-fill"></i> +{{ index.pct }}%</span>
-                        {% else %}
-                        <span class="badge badge-trend-down rounded-pill"><i class="bi bi-caret-down-fill"></i> {{ index.pct }}%</span>
-                        {% endif %}
-                    </div>
-                    <div class="d-flex align-items-baseline gap-2 mt-2">
-                        <h3 class="mb-0 fw-bold">${{ "{:,.2f}".format(index.price) }}</h3>
-                        <span class="fs-6 {% if index.change >= 0 %}text-success{% else %}text-danger{% endif %}">
-                            {{ "+" if index.change >= 0 }}{{ "{:,.2f}".format(index.change) }}
-                        </span>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
+<section class="hero">
 
-<!-- Hero Call to Action -->
-<div class="hero-glow-card text-center mb-5">
-    <h1 class="display-4 fw-extrabold text-white mb-3">
-        Next-Generation Stock Prediction
-    </h1>
-    <p class="lead text-secondary mx-auto mb-4" style="max-width: 700px;">
-        Combine the power of machine learning, technical indicators, and real-time market data to make smarter, data-driven decisions.
-    </p>
-    <div class="d-flex justify-content-center gap-3">
-        <a href="/dashboard" class="btn btn-primary-gradient px-4 py-3">
-            <i class="bi bi-speedometer2"></i> Launch Dashboard
-        </a>
-        <a href="/about" class="btn btn-outline-light px-4 py-3 border-secondary" style="border-radius: 12px;">
-            <i class="bi bi-info-circle"></i> Learn More
-        </a>
-    </div>
-</div>
+    <div class="hero-glow glow-one"></div>
+    <div class="hero-glow glow-two"></div>
 
-<!-- Platform Feature Blocks -->
-<div class="row g-4 mt-2">
-    <div class="col-lg-4">
-        <div class="card h-100 p-4">
-            <div class="fs-1 text-primary mb-3">
-                <i class="bi bi-graph-up"></i>
-            </div>
-            <h3 class="fw-bold">📊 Live Analytics</h3>
-            <p class="text-secondary mb-0">
-                Track and visualize real-time stock and cryptocurrency movements. Search any ticker globally and inspect interactive charts.
-            </p>
+    <!-- Navigation -->
+    <nav class="landing-nav">
+
+        <a href="/" class="brand">
+            <span class="brand-icon">◈</span>
+            Stock<span>AI</span>
+        </a>
+
+        <div class="landing-links">
+
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/prediction">Prediction</a>
+            <a href="/analytics">Analytics</a>
+            <a href="/about">About</a>
+
         </div>
-    </div>
-    
-    <div class="col-lg-4">
-        <div class="card h-100 p-4">
-            <div class="fs-1 text-success mb-3">
-                <i class="bi bi-cpu"></i>
-            </div>
-            <h3 class="fw-bold">🤖 Multi-Model ML</h3>
-            <p class="text-secondary mb-0">
-                Train and compare multiple machine learning models (Linear Regression vs Random Forest) using temporal, leakage-free historical splits.
-            </p>
+
+        <a href="/dashboard" class="nav-button">
+            Explore
+        </a>
+
+    </nav>
+
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            <span class="status-dot"></span>
+            AI-POWERED MARKET INTELLIGENCE
         </div>
-    </div>
-    
-    <div class="col-lg-4">
-        <div class="card h-100 p-4">
-            <div class="fs-1 text-warning mb-3">
-                <i class="bi bi-activity"></i>
-            </div>
-            <h3 class="fw-bold">📈 Tech Indicators</h3>
-            <p class="text-secondary mb-0">
-                Overlay moving averages (SMA20, SMA50) and Relative Strength Index (RSI) directly on price histories to spot trends and momentum.
-            </p>
+
+        <h1>
+            Predict the Market.
+            <span>Understand the Future.</span>
+        </h1>
+
+        <p>
+            Analyze live financial data, discover market trends,
+            and generate AI-powered stock predictions in real time.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/dashboard" class="primary-button">
+                Explore Dashboard
+                <span>↗</span>
+            </a>
+
+            <a href="/prediction" class="secondary-button">
+                View AI Prediction
+            </a>
+
         </div>
+
     </div>
-</div>
+
+
+    <!-- Market Visualization -->
+    <div class="market-visual">
+
+        <div class="orb"></div>
+
+        <div class="chart-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Floating Card 1 -->
+        <div class="floating-card card-left">
+
+            <small>MARKET TREND</small>
+
+            <strong>
+                AAPL
+            </strong>
+
+            <div class="positive">
+                +2.84%
+            </div>
+
+        </div>
+
+
+        <!-- Floating Card 2 -->
+        <div class="floating-card card-right">
+
+            <small>AI PREDICTION</small>
+
+            <strong>
+                $294.82
+            </strong>
+
+            <div class="prediction-label">
+                NEXT CLOSE
+            </div>
+
+        </div>
+
+
+        <!-- Floating Card 3 -->
+        <div class="floating-card card-bottom">
+
+            <small>MARKET SIGNAL</small>
+
+            <strong class="buy">
+                BUY
+            </strong>
+
+            <div class="signal-bar">
+                <span></span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Bottom Stats -->
+
+    <div class="hero-stats">
+
+        <div>
+            <strong>7+</strong>
+            <span>Markets</span>
+        </div>
+
+        <div>
+            <strong>1Y</strong>
+            <span>Historical Data</span>
+        </div>
+
+        <div>
+            <strong>AI</strong>
+            <span>Price Prediction</span>
+        </div>
+
+        <div>
+            <strong>24/7</strong>
+            <span>Market Analysis</span>
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}

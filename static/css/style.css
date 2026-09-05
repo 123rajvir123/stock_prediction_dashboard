@@ -10,7 +10,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Remove Bootstrap container spacing on landing page */
+
+/* =========================================================
+   LANDING PAGE
+   ========================================================= */
 
 body:has(.hero) .container {
     max-width: 100%;
@@ -22,6 +25,7 @@ body:has(.hero) .container {
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+
     background:
         radial-gradient(
             circle at 50% 70%,
@@ -31,9 +35,10 @@ body:has(.hero) .container {
         #07070b;
 }
 
-/* =========================
+
+/* =========================================================
    Navigation
-========================= */
+   ========================================================= */
 
 .landing-nav {
     width: 92%;
@@ -92,15 +97,18 @@ body:has(.hero) .container {
     font-weight: 600;
 }
 
-/* =========================
+
+/* =========================================================
    Hero
-========================= */
+   ========================================================= */
 
 .hero-content {
     width: 90%;
     max-width: 850px;
     margin: 65px auto 0;
+
     text-align: center;
+
     position: relative;
     z-index: 5;
 }
@@ -113,6 +121,7 @@ body:has(.hero) .container {
     color: #9999a5;
     font-size: 11px;
     letter-spacing: 2px;
+
     margin-bottom: 25px;
 }
 
@@ -120,6 +129,7 @@ body:has(.hero) .container {
     width: 7px;
     height: 7px;
     border-radius: 50%;
+
     background: #9c6cff;
     box-shadow: 0 0 15px #9c6cff;
 }
@@ -145,22 +155,26 @@ body:has(.hero) .container {
     line-height: 1.7;
 }
 
-/* =========================
+
+/* =========================================================
    Buttons
-========================= */
+   ========================================================= */
 
 .hero-buttons {
     display: flex;
     justify-content: center;
     gap: 12px;
+
     margin-top: 30px;
 }
 
 .primary-button,
 .secondary-button {
     text-decoration: none;
+
     padding: 14px 23px;
     border-radius: 30px;
+
     font-size: 14px;
     transition: 0.3s;
 }
@@ -188,9 +202,10 @@ body:has(.hero) .container {
     background: #15151b;
 }
 
-/* =========================
+
+/* =========================================================
    Market Visual
-========================= */
+   ========================================================= */
 
 .market-visual {
     height: 390px;
@@ -207,6 +222,7 @@ body:has(.hero) .container {
     position: absolute;
     left: 50%;
     bottom: -130px;
+
     transform: translateX(-50%);
 
     border-radius: 50% 50% 0 0;
@@ -229,23 +245,24 @@ body:has(.hero) .container {
 }
 
 @keyframes floatOrb {
-
-    0%, 100% {
+    0%,
+    100% {
         transform: translateX(-50%) translateY(0);
     }
 
     50% {
         transform: translateX(-50%) translateY(-15px);
     }
-
 }
 
-/* =========================
+
+/* =========================================================
    Chart
-========================= */
+   ========================================================= */
 
 .chart-lines {
     position: absolute;
+
     left: 50%;
     bottom: 80px;
 
@@ -286,35 +303,38 @@ body:has(.hero) .container {
     top: 90%;
 }
 
-/* =========================
+
+/* =========================================================
    Floating Cards
-========================= */
+   ========================================================= */
 
 .floating-card {
     position: absolute;
 
     padding: 16px 19px;
-
     min-width: 150px;
 
     background: rgba(20, 20, 27, 0.75);
-    border: 1px solid rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
     backdrop-filter: blur(15px);
 
     border-radius: 15px;
 
     box-shadow:
-        0 20px 50px rgba(0,0,0,0.35);
+        0 20px 50px rgba(0, 0, 0, 0.35);
 
     animation: floating 4s ease-in-out infinite;
 }
 
 .floating-card small {
     display: block;
+
     color: #777783;
     font-size: 9px;
     letter-spacing: 1.5px;
+
     margin-bottom: 8px;
 }
 
@@ -346,26 +366,28 @@ body:has(.hero) .container {
 .card-right {
     right: 5%;
     top: 60px;
+
     animation-delay: 1s;
 }
 
 .card-bottom {
     left: 50%;
     bottom: 15px;
+
     transform: translateX(-50%);
+
     animation-delay: 2s;
 }
 
 @keyframes floating {
-
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
 
     50% {
         transform: translateY(-10px);
     }
-
 }
 
 .card-bottom {
@@ -373,20 +395,20 @@ body:has(.hero) .container {
 }
 
 @keyframes floatingBottom {
-
-    0%, 100% {
+    0%,
+    100% {
         transform: translateX(-50%) translateY(0);
     }
 
     50% {
         transform: translateX(-50%) translateY(-10px);
     }
-
 }
 
-/* =========================
+
+/* =========================================================
    Stats
-========================= */
+   ========================================================= */
 
 .hero-stats {
     width: 90%;
@@ -420,9 +442,308 @@ body:has(.hero) .container {
     font-size: 11px;
 }
 
-/* =========================
+
+/* =========================================================
+   DASHBOARD ONLY
+   Does NOT affect Home / Prediction / Analytics / About
+   ========================================================= */
+
+
+/* Dashboard background */
+
+body:has(.timeframe-container) {
+    background: #07090f;
+}
+
+
+/* Dashboard Bootstrap cards */
+
+body:has(.timeframe-container) .card {
+    background: #11151f !important;
+
+    color: #f5f7fa !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.22);
+}
+
+
+/* Dashboard main heading */
+
+body:has(.timeframe-container) #tickerNameText {
+    color: #f8fafc !important;
+}
+
+body:has(.timeframe-container) #tickerSymbolText {
+    color: #697386 !important;
+}
+
+body:has(.timeframe-container) #livePriceHeader {
+    color: #ffffff !important;
+}
+
+body:has(.timeframe-container) #livePriceChangeBadge {
+    color: #f87171 !important;
+}
+
+
+/* =========================================================
+   Dashboard timeframe buttons
+   ========================================================= */
+
+body:has(.timeframe-container) .timeframe-btn {
+    background: #151a24 !important;
+
+    color: #b8c0ce !important;
+
+    border: 1px solid #2b3342 !important;
+
+    border-radius: 7px;
+
+    padding: 6px 10px;
+
+    transition: 0.2s ease;
+}
+
+body:has(.timeframe-container) .timeframe-btn:hover {
+    background: #202636 !important;
+    color: #ffffff !important;
+}
+
+body:has(.timeframe-container) .timeframe-btn.active {
+    background: #8b5cf6 !important;
+    color: #ffffff !important;
+    border-color: #8b5cf6 !important;
+}
+
+
+/* =========================================================
+   SMA controls
+   ========================================================= */
+
+body:has(.timeframe-container) .btn-outline-secondary {
+    color: #aeb7c7 !important;
+    border-color: #303847 !important;
+    background: #121722 !important;
+}
+
+body:has(.timeframe-container) .btn-outline-secondary:hover {
+    background: #1b2130 !important;
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   Buy / Sell
+   ========================================================= */
+
+body:has(.timeframe-container) .action-box {
+    background: #141923 !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-radius: 9px;
+    padding: 7px 12px;
+}
+
+body:has(.timeframe-container) .action-box.sell .action-title,
+body:has(.timeframe-container) .action-box.sell .action-price {
+    color: #fb7185 !important;
+}
+
+body:has(.timeframe-container) .action-box.buy .action-title,
+body:has(.timeframe-container) .action-box.buy .action-price {
+    color: #34d399 !important;
+}
+
+
+/* =========================================================
+   Chart background
+   ========================================================= */
+
+body:has(.timeframe-container) #tradingviewChart {
+    background-color: #0c101b !important;
+}
+
+
+/* =========================================================
+   NEWS FEED
+   Keep SAME structure, only improve visibility/colors
+   ========================================================= */
+
+body:has(.timeframe-container) .card:has(.bi-newspaper) {
+    background: #11151f !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+
+    color: #ffffff !important;
+}
+
+
+/* News title */
+
+body:has(.timeframe-container) .card:has(.bi-newspaper) .card-title {
+    color: #f8fafc !important;
+}
+
+body:has(.timeframe-container) .card:has(.bi-newspaper) .card-title .bi-newspaper {
+    color: #9c6cff !important;
+}
+
+
+/* Individual news cards */
+
+body:has(.timeframe-container) .card:has(.bi-newspaper) .row > div > div {
+    background: #161b26 !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+
+    transition: 0.2s ease;
+}
+
+body:has(.timeframe-container) .card:has(.bi-newspaper) .row > div > div:hover {
+    background: #1b2130 !important;
+
+    border-color: rgba(156, 108, 255, 0.35) !important;
+
+    transform: translateY(-2px);
+}
+
+
+/* News publisher badge */
+
+body:has(.timeframe-container) .card:has(.bi-newspaper) .badge.bg-secondary {
+    background: #252c39 !important;
+
+    color: #cbd5e1 !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* News headline */
+
+body:has(.timeframe-container) .card:has(.bi-newspaper) h6 {
+    color: #f8fafc !important;
+}
+
+body:has(.timeframe-container) .card:has(.bi-newspaper) h6 a {
+    color: #e5e7eb !important;
+}
+
+body:has(.timeframe-container) .card:has(.bi-newspaper) h6 a:hover {
+    color: #a78bfa !important;
+}
+
+
+/* News date/time */
+
+body:has(.timeframe-container) .card:has(.bi-newspaper) small {
+    color: #7f8a9d !important;
+}
+
+
+/* =========================================================
+   SEARCH TICKER
+   ========================================================= */
+
+body:has(.timeframe-container) .form-control {
+    background: #151a24 !important;
+
+    color: #f8fafc !important;
+
+    border: 1px solid #303847 !important;
+}
+
+body:has(.timeframe-container) .form-control::placeholder {
+    color: #6f7a8c !important;
+}
+
+body:has(.timeframe-container) .form-control:focus {
+    background: #171d29 !important;
+
+    color: #ffffff !important;
+
+    border-color: #8b5cf6 !important;
+
+    box-shadow:
+        0 0 0 0.2rem rgba(139, 92, 246, 0.12) !important;
+}
+
+
+/* =========================================================
+   WATCHLIST
+   ========================================================= */
+
+body:has(.timeframe-container) .table {
+    color: #dce2ea !important;
+}
+
+body:has(.timeframe-container) .table th {
+    color: #7f8a9d !important;
+
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body:has(.timeframe-container) .table td {
+    color: #dce2ea !important;
+
+    border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+
+/* =========================================================
+   Market Stats
+   ========================================================= */
+
+body:has(.timeframe-container) .text-muted,
+body:has(.timeframe-container) .text-secondary {
+    color: #7f8a9d !important;
+}
+
+body:has(.timeframe-container) .border-secondary {
+    border-color: #303847 !important;
+}
+
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+
+body:has(.timeframe-container) .btn-primary-gradient {
+    background: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #6d4bd8
+    ) !important;
+
+    border: none !important;
+
+    color: #ffffff !important;
+}
+
+body:has(.timeframe-container) .btn-primary-gradient:hover {
+    background: linear-gradient(
+        135deg,
+        #9c6cff,
+        #7c5ce0
+    ) !important;
+}
+
+
+/* =========================================================
+   Live badge
+   ========================================================= */
+
+body:has(.timeframe-container) .bg-success {
+    background: #15945f !important;
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
    Responsive
-========================= */
+   ========================================================= */
 
 @media (max-width: 768px) {
 
@@ -467,5 +788,4 @@ body:has(.hero) .container {
         gap: 15px;
         flex-wrap: wrap;
     }
-
 }

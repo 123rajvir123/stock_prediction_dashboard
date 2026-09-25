@@ -789,3 +789,394 @@ body:has(.timeframe-container) .bg-success {
         flex-wrap: wrap;
     }
 }
+
+/* =========================================================
+   STOCKAI - PREDICTION PAGE THEME
+   ========================================================= */
+
+body:has(.prediction-page) {
+    background: #07070b !important;
+    color: #f5f5f7;
+}
+
+.prediction-page {
+    color: #f5f5f7;
+}
+
+
+/* Page heading */
+.prediction-page h1,
+.prediction-page h2,
+.prediction-page h3,
+.prediction-page h4,
+.prediction-page h5,
+.prediction-page h6 {
+    color: #f5f5f7;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.prediction-page .prediction-card {
+    background: #11151f !important;
+    color: #f5f5f7 !important;
+
+    border: 1px solid rgba(156, 108, 255, 0.16) !important;
+    border-radius: 14px !important;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.prediction-page .prediction-card:hover {
+    border-color: rgba(156, 108, 255, 0.30) !important;
+}
+
+
+/* =========================================================
+   MODEL BUTTONS
+   ========================================================= */
+
+.prediction-page .model-btn {
+    border-radius: 8px !important;
+    transition: all 0.2s ease;
+}
+
+.prediction-page .btn-primary-gradient {
+    background: linear-gradient(
+        135deg,
+        #9c6cff,
+        #7650d9
+    ) !important;
+
+    border: 1px solid #9c6cff !important;
+    color: #ffffff !important;
+}
+
+.prediction-page .btn-primary-gradient:hover {
+    background: linear-gradient(
+        135deg,
+        #aa7cff,
+        #825de5
+    ) !important;
+}
+
+.prediction-page .btn-outline-secondary {
+    background: #0d1119 !important;
+    border-color: #303746 !important;
+    color: #9aa0ad !important;
+}
+
+.prediction-page .btn-outline-secondary:hover {
+    background: rgba(156, 108, 255, 0.10) !important;
+    border-color: #9c6cff !important;
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   PRICE CARDS
+   ========================================================= */
+
+.prediction-page .prediction-stat-card {
+    background: #11151f !important;
+}
+
+.prediction-page .prediction-price-card {
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(156, 108, 255, 0.20),
+            transparent 70%
+        ),
+        #11151f !important;
+}
+
+.prediction-page .prediction-price-card h2 {
+    color: #9c6cff !important;
+}
+
+
+/* =========================================================
+   AI RECOMMENDATION
+   ========================================================= */
+
+.prediction-page .signal-gauge {
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(156, 108, 255, 0.20),
+            transparent 35%
+        ),
+        #11151f !important;
+
+    padding: 24px !important;
+}
+
+
+/* =========================================================
+   POSITIVE / NEGATIVE VALUES
+   ========================================================= */
+
+.prediction-page .prediction-positive {
+    color: #18c77a !important;
+    font-weight: 600;
+}
+
+.prediction-page .prediction-negative {
+    color: #ff5c6c !important;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.prediction-page .prediction-table {
+    --bs-table-bg: transparent !important;
+    --bs-table-color: #dfe2e8 !important;
+
+    color: #dfe2e8 !important;
+    margin-bottom: 0;
+}
+
+.prediction-page .prediction-table thead {
+    background: #0d1119;
+}
+
+.prediction-page .prediction-table th {
+    color: #9aa0ad !important;
+    font-size: 12px;
+    font-weight: 600;
+
+    border-bottom: 1px solid #303746 !important;
+    padding: 14px 10px;
+}
+
+.prediction-page .prediction-table td {
+    color: #dfe2e8 !important;
+
+    border-bottom: 1px solid rgba(48, 55, 70, 0.65) !important;
+}
+
+.prediction-page .prediction-table tbody tr {
+    background: transparent !important;
+}
+
+
+/* Selected model */
+.prediction-page .prediction-table .selected-model-row {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(156, 108, 255, 0.14),
+            rgba(156, 108, 255, 0.04)
+        ) !important;
+
+    border-left: 3px solid #9c6cff;
+}
+
+.prediction-page .prediction-table .selected-model-row td {
+    color: #ffffff !important;
+}
+
+
+/* Forecast price */
+.prediction-page .prediction-value {
+    color: #ffffff !important;
+}
+
+
+/* MAE / RMSE / R2 */
+.prediction-page .metric-value {
+    color: #8d96a6 !important;
+}
+
+
+/* Active badge */
+.prediction-page .prediction-active-badge {
+    background: #9c6cff !important;
+    color: #ffffff !important;
+
+    font-size: 9px;
+    padding: 4px 7px;
+}
+
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
+
+.prediction-page .prediction-divider {
+    border-color: #303746 !important;
+    opacity: 1;
+}
+
+.prediction-page .prediction-description {
+    color: #9aa0ad !important;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.prediction-page .prediction-rules {
+    color: #aeb4c2 !important;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.prediction-page .prediction-footnote {
+    color: #737b8a !important;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SELECT ASSET
+   ========================================================= */
+
+.prediction-page .prediction-input {
+    background: #0d1119 !important;
+    color: #ffffff !important;
+
+    border: 1px solid #303746 !important;
+    border-radius: 9px !important;
+
+    box-shadow: none !important;
+}
+
+.prediction-page .prediction-input:focus {
+    background: #0d1119 !important;
+    color: #ffffff !important;
+
+    border-color: #9c6cff !important;
+
+    box-shadow:
+        0 0 0 3px rgba(156, 108, 255, 0.12) !important;
+}
+
+.prediction-page .prediction-input::placeholder {
+    color: #737b8a !important;
+}
+
+.prediction-page .prediction-search-btn {
+    min-width: 48px;
+    border-radius: 9px !important;
+}
+
+
+/* =========================================================
+   QUICK PREDICTIONS
+   ========================================================= */
+
+.prediction-page .prediction-ticker-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 4px !important;
+
+    background: transparent !important;
+
+    color: #9aa0ad !important;
+
+    border: 0 !important;
+    border-bottom: 1px solid #303746 !important;
+
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+.prediction-page .prediction-ticker-item:hover {
+    background: rgba(156, 108, 255, 0.06) !important;
+    color: #ffffff !important;
+
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+.prediction-page .prediction-ticker-item.active-ticker {
+    color: #ffffff !important;
+    font-weight: 700;
+
+    background:
+        rgba(156, 108, 255, 0.10) !important;
+
+    border-left: 3px solid #9c6cff !important;
+
+    padding-left: 10px !important;
+}
+
+.prediction-page .prediction-ticker-badge {
+    background: #68717d !important;
+    color: #ffffff !important;
+
+    border-radius: 7px;
+    padding: 5px 8px;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+   ========================================================= */
+
+.prediction-page .prediction-alert {
+    background: rgba(255, 92, 108, 0.10) !important;
+    color: #ff7b88 !important;
+
+    border: 1px solid rgba(255, 92, 108, 0.20) !important;
+}
+
+
+/* =========================================================
+   ICON COLORS
+   ========================================================= */
+
+.prediction-page .text-primary {
+    color: #9c6cff !important;
+}
+
+.prediction-page .text-info {
+    color: #6da8ff !important;
+}
+
+.prediction-page .text-success {
+    color: #18c77a !important;
+}
+
+.prediction-page .text-danger {
+    color: #ff5c6c !important;
+}
+
+.prediction-page .text-warning {
+    color: #f5c451 !important;
+}
+
+.prediction-page .text-secondary {
+    color: #8f98a8 !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .prediction-page h1 {
+        font-size: 2rem;
+    }
+
+    .prediction-page .prediction-card {
+        border-radius: 12px !important;
+    }
+
+    .prediction-page .prediction-table {
+        min-width: 700px;
+    }
+
+}

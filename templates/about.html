@@ -4,93 +4,992 @@
 
 {% block content %}
 
-<!-- Header -->
-<div class="row align-items-center mb-4">
-    <div class="col-md-7 col-sm-12">
-        <h1 class="mb-0 fw-extrabold text-white"><i class="bi bi-info-circle"></i> About This Project</h1>
-        <p class="text-secondary mt-1">Project objective, technologies utilized, and details about the forecasting models.</p>
+<div class="about-page">
+
+    <!-- =====================================================
+         PAGE HEADER
+         ===================================================== -->
+
+    <div class="row align-items-center mb-4">
+
+        <div class="col-md-8 col-sm-12">
+
+            <div class="about-eyebrow">
+                <i class="bi bi-info-circle"></i>
+                STOCKAI PLATFORM
+            </div>
+
+            <h1 class="about-title">
+                About This Project
+            </h1>
+
+            <p class="about-subtitle">
+                Project objective, technologies utilized, and details about
+                the forecasting models.
+            </p>
+
+        </div>
+
     </div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <div class="row g-4">
+
+        <!-- =================================================
+             LEFT COLUMN
+             ================================================= -->
+
+        <div class="col-lg-8">
+
+
+            <!-- =================================================
+                 OVERVIEW
+                 ================================================= -->
+
+            <div class="card about-card p-4 mb-4">
+
+                <div class="about-section-heading">
+
+                    <div class="about-icon purple-icon">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+
+                    <div>
+                        <h3 class="fw-bold mb-1">
+                            Advanced Stock Prediction Dashboard
+                        </h3>
+
+                        <span class="section-label">
+                            PROJECT OVERVIEW
+                        </span>
+                    </div>
+
+                </div>
+
+                <p class="about-text mb-0">
+                    This project is a professional-grade web application
+                    built in Python using Flask that fetches live financial
+                    market data, tracks indices, calculates technical
+                    momentum indicators, and trains machine learning models
+                    to forecast the next closing price of any asset ticker.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 MACHINE LEARNING ARCHITECTURE
+                 ================================================= -->
+
+            <div class="card about-card p-4 mb-4">
+
+                <div class="about-section-heading">
+
+                    <div class="about-icon blue-icon">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+
+                    <div>
+                        <h3 class="fw-bold mb-1">
+                            Machine Learning Architecture
+                        </h3>
+
+                        <span class="section-label">
+                            FORECASTING MODELS
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <p class="about-text mb-4">
+                    The forecasting module trains and validates two distinct
+                    supervised learning algorithms on 1 year of historical
+                    market features (Open, High, Low, Close, Volume):
+                </p>
+
+
+                <!-- MODEL CARDS -->
+
+                <div class="row g-3">
+
+
+                    <!-- Linear Regression -->
+
+                    <div class="col-md-6">
+
+                        <div class="model-card linear-model">
+
+                            <div class="model-top">
+
+                                <div class="model-icon linear-icon">
+                                    <i class="bi bi-activity"></i>
+                                </div>
+
+                                <div>
+                                    <h6 class="model-title">
+                                        Linear Regression
+                                    </h6>
+
+                                    <span class="model-tag linear-tag">
+                                        BASELINE MODEL
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <p class="model-description mb-0">
+                                Fits a linear combination of features to
+                                discover baseline trends in pricing, serving
+                                as an optimal benchmark.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Random Forest -->
+
+                    <div class="col-md-6">
+
+                        <div class="model-card forest-model">
+
+                            <div class="model-top">
+
+                                <div class="model-icon forest-icon">
+                                    <i class="bi bi-tree"></i>
+                                </div>
+
+                                <div>
+                                    <h6 class="model-title">
+                                        Random Forest Regressor
+                                    </h6>
+
+                                    <span class="model-tag forest-tag">
+                                        ENSEMBLE MODEL
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <p class="model-description mb-0">
+                                An ensemble decision tree model that captures
+                                non-linear relationships and interactions
+                                between volumes and price limits.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CHRONOLOGICAL SPLIT -->
+
+                <div class="methodology-box mt-4">
+
+                    <div class="methodology-icon">
+                        <i class="bi bi-clock-history"></i>
+                    </div>
+
+                    <div>
+
+                        <h6 class="methodology-title">
+                            Chronological Split
+                        </h6>
+
+                        <p class="about-text small mb-0">
+                            To comply with financial machine learning best
+                            practices and prevent target leakage, the dataset
+                            is split chronologically (80% training, 20%
+                            validation). Models are fit on training data alone
+                            and verified against out-of-sample data.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJECT OBJECTIVES
+                 ================================================= -->
+
+            <div class="card about-card p-4">
+
+                <div class="about-section-heading">
+
+                    <div class="about-icon yellow-icon">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+
+                    <div>
+                        <h3 class="fw-bold mb-1">
+                            Project Objectives
+                        </h3>
+
+                        <span class="section-label">
+                            PROJECT GOALS
+                        </span>
+                    </div>
+
+                </div>
+
+                <p class="about-text mb-0">
+                    The objective of StockAI is to demonstrate full-stack
+                    proficiency in data science pipelines, real-time data
+                    ingestion, interactive browser storage APIs, and
+                    high-fidelity, responsive user interfaces.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             RIGHT COLUMN
+             ================================================= -->
+
+        <div class="col-lg-4">
+
+
+            <!-- =================================================
+                 TECHNOLOGY STACK
+                 ================================================= -->
+
+            <div class="card about-card p-4 mb-4">
+
+                <div class="sidebar-heading">
+
+                    <div class="about-icon purple-icon small-icon">
+                        <i class="bi bi-boxes"></i>
+                    </div>
+
+                    <div>
+
+                        <h5 class="fw-bold mb-0">
+                            Technology Stack
+                        </h5>
+
+                        <span class="section-label">
+                            BUILT WITH
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tech-grid">
+
+                    <span class="tech-badge">
+                        <i class="bi bi-filetype-py"></i>
+                        Python 3
+                    </span>
+
+                    <span class="tech-badge">
+                        <i class="bi bi-server"></i>
+                        Flask
+                    </span>
+
+                    <span class="tech-badge">
+                        <i class="bi bi-bar-chart"></i>
+                        yfinance
+                    </span>
+
+                    <span class="tech-badge">
+                        <i class="bi bi-table"></i>
+                        Pandas
+                    </span>
+
+                    <span class="tech-badge">
+                        <i class="bi bi-calculator"></i>
+                        NumPy
+                    </span>
+
+                    <span class="tech-badge">
+                        <i class="bi bi-cpu"></i>
+                        Scikit-learn
+                    </span>
+
+                    <span class="tech-badge">
+                        <i class="bi bi-graph-up"></i>
+                        Chart.js
+                    </span>
+
+                    <span class="tech-badge">
+                        <i class="bi bi-bootstrap"></i>
+                        Bootstrap 5
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CORE CAPABILITIES
+                 ================================================= -->
+
+            <div class="card about-card p-4">
+
+                <div class="sidebar-heading">
+
+                    <div class="about-icon green-icon small-icon">
+                        <i class="bi bi-patch-check-fill"></i>
+                    </div>
+
+                    <div>
+
+                        <h5 class="fw-bold mb-0">
+                            Core Capabilities
+                        </h5>
+
+                        <span class="section-label">
+                            FEATURES
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <ul class="capability-list">
+
+                    <li>
+                        <span class="capability-check">
+                            <i class="bi bi-check"></i>
+                        </span>
+
+                        <span>
+                            Search support for any global stock or crypto symbol.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span class="capability-check">
+                            <i class="bi bi-check"></i>
+                        </span>
+
+                        <span>
+                            Interactive, state-preserving Watchlist.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span class="capability-check">
+                            <i class="bi bi-check"></i>
+                        </span>
+
+                        <span>
+                            Yahoo Finance live news feed.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span class="capability-check">
+                            <i class="bi bi-check"></i>
+                        </span>
+
+                        <span>
+                            Dynamic Technical Studies (SMA, RSI overlays).
+                        </span>
+                    </li>
+
+                    <li>
+                        <span class="capability-check">
+                            <i class="bi bi-check"></i>
+                        </span>
+
+                        <span>
+                            Multi-model prediction backtesting comparison.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span class="capability-check">
+                            <i class="bi bi-check"></i>
+                        </span>
+
+                        <span>
+                            Fully responsive, glassmorphic dark theme.
+                        </span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
-<div class="row g-4">
-    <!-- Main Content -->
-    <div class="col-lg-8">
-        <!-- Overview -->
-        <div class="card p-4 mb-4 border-0">
-            <h3 class="fw-bold text-white mb-3">📈 Advanced Stock Prediction Dashboard</h3>
-            <p class="text-secondary mb-0">
-                This project is a professional-grade web application built in Python using Flask that fetches live financial market data, tracks indices, calculates technical momentum indicators, and trains machine learning models to forecast the next closing price of any asset ticker.
-            </p>
-        </div>
 
-        <!-- ML Details -->
-        <div class="card p-4 mb-4 border-0">
-            <h3 class="fw-bold text-white mb-3"><i class="bi bi-cpu text-primary"></i> Machine Learning Architecture</h3>
-            <p class="text-secondary mb-3">
-                The forecasting module trains and validates two distinct supervised learning algorithms on 1 year of historical market features (Open, High, Low, Close, Volume):
-            </p>
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <div class="p-3 rounded h-100" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color);">
-                        <h6 class="text-white fw-bold"><i class="bi bi-activity text-info"></i> Linear Regression</h6>
-                        <p class="text-secondary mb-0" style="font-size: 13px;">
-                            Fits a linear combination of features to discover baseline trends in pricing, serving as an optimal benchmark.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-3 rounded h-100" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color);">
-                        <h6 class="text-white fw-bold"><i class="bi bi-tree text-success"></i> Random Forest Regressor</h6>
-                        <p class="text-secondary mb-0" style="font-size: 13px;">
-                            An ensemble decision tree model that captures non-linear relationships and interactions between volumes and price limits.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <p class="text-secondary mt-3 mb-0" style="font-size: 13px;">
-                <strong>Chronological Split:</strong> To comply with financial machine learning best practices and prevent target leakage, the dataset is split chronologically (80% training, 20% validation). Models are fit on training data alone and verified against out-of-sample data.
-            </p>
-        </div>
+<!-- =========================================================
+     ABOUT PAGE THEME
+     ========================================================= -->
 
-        <!-- Objectives -->
-        <div class="card p-4 border-0">
-            <h3 class="fw-bold text-white mb-3"><i class="bi bi-bullseye text-warning"></i> Project Objectives</h3>
-            <p class="text-secondary mb-0">
-                The objective of StockAI is to demonstrate full-stack proficiency in data science pipelines, real-time data ingestion, interactive browser storage APIs, and high-fidelity, responsive user interfaces.
-            </p>
-        </div>
-    </div>
+<style>
 
-    <!-- Sidebar Info -->
-    <div class="col-lg-4">
-        <!-- Tech Stack -->
-        <div class="card p-4 mb-4 border-0">
-            <h5 class="fw-bold mb-3"><i class="bi bi-boxes"></i> Technology Stack</h5>
-            <div class="d-flex flex-wrap gap-2">
-                <span class="badge bg-dark border border-secondary text-secondary py-2 px-3">Python 3</span>
-                <span class="badge bg-dark border border-secondary text-secondary py-2 px-3">Flask</span>
-                <span class="badge bg-dark border border-secondary text-secondary py-2 px-3">yfinance</span>
-                <span class="badge bg-dark border border-secondary text-secondary py-2 px-3">Pandas</span>
-                <span class="badge bg-dark border border-secondary text-secondary py-2 px-3">NumPy</span>
-                <span class="badge bg-dark border border-secondary text-secondary py-2 px-3">Scikit-learn</span>
-                <span class="badge bg-dark border border-secondary text-secondary py-2 px-3">Chart.js</span>
-                <span class="badge bg-dark border border-secondary text-secondary py-2 px-3">Bootstrap 5</span>
-            </div>
-        </div>
+/* =========================================================
+   ABOUT PAGE BASE
+   ========================================================= */
 
-        <!-- Features Built -->
-        <div class="card p-4 border-0">
-            <h5 class="fw-bold mb-3"><i class="bi bi-patch-check-fill text-success"></i> Core Capabilities</h5>
-            <ul class="text-secondary ps-3 mb-0" style="font-size: 13px; line-height: 1.8;">
-                <li>Search support for any global stock or crypto symbol.</li>
-                <li>Interactive, state-preserving Watchlist.</li>
-                <li>Yahoo Finance live news feed.</li>
-                <li>Dynamic Technical Studies (SMA, RSI overlays).</li>
-                <li>Multi-model prediction backtesting comparison.</li>
-                <li>Fully responsive, glassmorphic dark theme.</li>
-            </ul>
-        </div>
-    </div>
-</div>
+.about-page {
+    color: #f5f5f7;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.about-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 10px;
+
+    color: #9c6cff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.about-title {
+    margin: 0;
+
+    color: #f5f5f7;
+
+    font-size: clamp(2.3rem, 4vw, 3.5rem);
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+}
+
+.about-subtitle {
+    margin-top: 8px;
+
+    color: #8f98a8;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   MAIN CARDS
+   ========================================================= */
+
+.about-page .about-card {
+    background: #11151f !important;
+
+    color: #f5f5f7 !important;
+
+    border: 1px solid rgba(156, 108, 255, 0.18) !important;
+
+    border-radius: 14px !important;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25) !important;
+
+    transition:
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.about-page .about-card:hover {
+    border-color: rgba(156, 108, 255, 0.32) !important;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35) !important;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.about-section-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+}
+
+.about-section-heading h3 {
+    color: #f5f5f7 !important;
+
+    font-size: 21px;
+}
+
+.section-label {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #697386;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+
+/* =========================================================
+   ICON BOXES
+   ========================================================= */
+
+.about-icon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    font-size: 19px;
+}
+
+.small-icon {
+    width: 40px;
+    height: 40px;
+
+    font-size: 17px;
+}
+
+
+/* Purple */
+
+.purple-icon {
+    color: #c5a9ff;
+
+    background: rgba(156, 108, 255, 0.12);
+
+    border: 1px solid rgba(156, 108, 255, 0.22);
+}
+
+
+/* Blue */
+
+.blue-icon {
+    color: #65c7ff;
+
+    background: rgba(59, 130, 246, 0.10);
+
+    border: 1px solid rgba(59, 130, 246, 0.20);
+}
+
+
+/* Yellow */
+
+.yellow-icon {
+    color: #f5c451;
+
+    background: rgba(245, 196, 81, 0.10);
+
+    border: 1px solid rgba(245, 196, 81, 0.20);
+}
+
+
+/* Green */
+
+.green-icon {
+    color: #4ade80;
+
+    background: rgba(34, 197, 94, 0.10);
+
+    border: 1px solid rgba(34, 197, 94, 0.20);
+}
+
+
+/* =========================================================
+   BODY TEXT
+   ========================================================= */
+
+.about-text {
+    color: #929baa !important;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+.about-text strong {
+    color: #e5e7eb;
+}
+
+
+/* =========================================================
+   MODEL CARDS
+   ========================================================= */
+
+.model-card {
+    height: 100%;
+
+    padding: 18px;
+
+    background: #0d1119;
+
+    border: 1px solid #303746;
+
+    border-radius: 11px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.model-card:hover {
+    transform: translateY(-2px);
+
+    background: #111722;
+}
+
+.linear-model:hover {
+    border-color: rgba(34, 211, 238, 0.45);
+}
+
+.forest-model:hover {
+    border-color: rgba(34, 197, 94, 0.45);
+}
+
+
+.model-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 14px;
+}
+
+
+.model-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    flex-shrink: 0;
+}
+
+
+.linear-icon {
+    color: #22d3ee;
+
+    background: rgba(34, 211, 238, 0.10);
+}
+
+
+.forest-icon {
+    color: #22c55e;
+
+    background: rgba(34, 197, 94, 0.10);
+}
+
+
+.model-title {
+    color: #f5f5f7;
+
+    margin-bottom: 3px;
+
+    font-size: 14px;
+}
+
+
+.model-tag {
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+
+.linear-tag {
+    color: #22d3ee;
+}
+
+
+.forest-tag {
+    color: #22c55e;
+}
+
+
+.model-description {
+    color: #8f98a8;
+
+    font-size: 12px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   METHODOLOGY BOX
+   ========================================================= */
+
+.methodology-box {
+    display: flex;
+
+    gap: 13px;
+
+    padding: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(156, 108, 255, 0.08),
+            rgba(156, 108, 255, 0.025)
+        );
+
+    border: 1px solid rgba(156, 108, 255, 0.18);
+
+    border-radius: 10px;
+}
+
+
+.methodology-icon {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #b999ff;
+
+    background: rgba(156, 108, 255, 0.10);
+
+    border-radius: 8px;
+}
+
+
+.methodology-title {
+    color: #e9e5f5;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   SIDEBAR HEADINGS
+   ========================================================= */
+
+.sidebar-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.sidebar-heading h5 {
+    color: #f5f5f7 !important;
+}
+
+
+/* =========================================================
+   TECHNOLOGY GRID
+   ========================================================= */
+
+.tech-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 9px;
+}
+
+
+.tech-badge {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 10px 11px;
+
+    color: #aeb6c4;
+
+    background: #0d1119;
+
+    border: 1px solid #303746;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.tech-badge i {
+    color: #9c6cff;
+
+    font-size: 13px;
+}
+
+
+.tech-badge:hover {
+    color: #ffffff;
+
+    background: rgba(156, 108, 255, 0.07);
+
+    border-color: rgba(156, 108, 255, 0.35);
+}
+
+
+/* =========================================================
+   CAPABILITY LIST
+   ========================================================= */
+
+.capability-list {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+
+.capability-list li {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    padding: 10px 0;
+
+    color: #929baa;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+
+    border-bottom: 1px solid rgba(48, 55, 70, 0.65);
+}
+
+
+.capability-list li:last-child {
+    border-bottom: none;
+
+    padding-bottom: 0;
+}
+
+
+.capability-check {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 1px;
+
+    color: #4ade80;
+
+    background: rgba(34, 197, 94, 0.10);
+
+    border: 1px solid rgba(34, 197, 94, 0.20);
+
+    border-radius: 50%;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .about-title {
+        font-size: 2.5rem;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .about-title {
+        font-size: 2rem;
+
+        letter-spacing: -0.8px;
+    }
+
+    .about-subtitle {
+        font-size: 13px;
+    }
+
+    .about-page .about-card {
+        padding: 18px !important;
+    }
+
+    .about-section-heading h3 {
+        font-size: 18px;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
 
 {% endblock %}

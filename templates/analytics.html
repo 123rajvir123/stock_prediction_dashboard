@@ -6,13 +6,9 @@
 
 <div class="analytics-page">
 
-    <!-- =====================================================
-         PAGE HEADER
-         ===================================================== -->
-
+    <!-- Header -->
     <div class="row align-items-center mb-4">
         <div class="col-md-7 col-sm-12">
-
             <h1 class="mb-0 fw-extrabold text-white">
                 <i class="bi bi-bar-chart-line"></i>
                 Advanced Analytics
@@ -21,20 +17,20 @@
             <p class="text-secondary mt-1">
                 Overlay technical studies on price trends and inspect backtest diagnostics.
             </p>
-
         </div>
     </div>
 
 
-    <!-- =====================================================
-         ERROR MESSAGE
-         ===================================================== -->
-
     {% if error %}
-
     <div
         class="alert alert-danger alert-dismissible fade show border-0 shadow"
         role="alert"
+        style="
+            background: rgba(239, 68, 68, 0.12);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.25) !important;
+            border-radius: 12px;
+        "
     >
         <i class="bi bi-exclamation-triangle-fill me-2"></i>
         {{ error }}
@@ -46,31 +42,19 @@
             aria-label="Close"
         ></button>
     </div>
-
     {% endif %}
 
 
-    <!-- =====================================================
-         MAIN ANALYTICS LAYOUT
-         ===================================================== -->
-
     <div class="row g-4">
 
-
-        <!-- =================================================
-             LEFT COLUMN
-             ================================================= -->
+        <!-- ========================= -->
+        <!-- LEFT COLUMN -->
+        <!-- ========================= -->
 
         <div class="col-lg-8">
 
-
-            <!-- =================================================
-                 TECHNICAL CHART CARD
-                 ================================================= -->
-
-            <div class="card p-4 mb-4 analytics-card">
-
-                <!-- Card Header -->
+            <!-- Chart Card -->
+            <div class="card p-4 mb-4">
 
                 <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
 
@@ -89,13 +73,8 @@
                 </div>
 
 
-                <!-- =================================================
-                     INDICATOR CONTROLS
-                     ================================================= -->
-
+                <!-- Indicator Controls -->
                 <div class="row g-2 mb-4">
-
-                    <!-- SMA 20 -->
 
                     <div class="col-6 col-sm-4">
 
@@ -103,7 +82,6 @@
                             class="checkbox-card"
                             for="toggleSma20"
                         >
-
                             <input
                                 type="checkbox"
                                 id="toggleSma20"
@@ -112,13 +90,10 @@
                             <span>
                                 SMA 20 (Orange)
                             </span>
-
                         </label>
 
                     </div>
 
-
-                    <!-- SMA 50 -->
 
                     <div class="col-6 col-sm-4">
 
@@ -126,7 +101,6 @@
                             class="checkbox-card"
                             for="toggleSma50"
                         >
-
                             <input
                                 type="checkbox"
                                 id="toggleSma50"
@@ -135,13 +109,10 @@
                             <span>
                                 SMA 50 (Purple)
                             </span>
-
                         </label>
 
                     </div>
 
-
-                    <!-- RSI -->
 
                     <div class="col-12 col-sm-4">
 
@@ -149,7 +120,6 @@
                             class="checkbox-card"
                             for="toggleRsi"
                         >
-
                             <input
                                 type="checkbox"
                                 id="toggleRsi"
@@ -158,7 +128,6 @@
                             <span>
                                 RSI 14 (Green, Right Axis)
                             </span>
-
                         </label>
 
                     </div>
@@ -166,33 +135,114 @@
                 </div>
 
 
-                <!-- =================================================
-                     CHART
-                     ================================================= -->
-
+                <!-- Chart -->
                 <div class="analytics-chart-container">
 
-                    <canvas id="analyticalChart"></canvas>
+    <svg
+        id="priceChart"
+        viewBox="0 0 1000 420"
+        preserveAspectRatio="none"
+        style="width: 100%; height: 100%; display: block;"
+    >
 
-                </div>
+        <!-- Grid -->
+        <g id="chartGrid"></g>
+
+        <!-- Price area -->
+        <path
+            id="priceArea"
+            fill="rgba(156,108,255,0.08)"
+            stroke="none"
+        ></path>
+
+        <!-- Main price line -->
+        <path
+            id="priceLine"
+            fill="none"
+            stroke="#9c6cff"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        ></path>
+
+        <!-- SMA 20 -->
+        <path
+            id="sma20Line"
+            fill="none"
+            stroke="#f59e0b"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            opacity="0"
+        ></path>
+
+        <!-- SMA 50 -->
+        <path
+            id="sma50Line"
+            fill="none"
+            stroke="#a78bfa"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            opacity="0"
+        ></path>
+
+        <!-- RSI -->
+        <path
+            id="rsiLine"
+            fill="none"
+            stroke="#10b981"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            opacity="0"
+        ></path>
+
+    </svg>
+
+    <div
+        id="chartStatus"
+        style="
+            position:absolute;
+            inset:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#64748b;
+            font-size:14px;
+            pointer-events:none;
+        "
+    >
+        Loading chart...
+    </div>
+
+</div>
 
             </div>
 
 
-            <!-- =================================================
-                 MODEL PERFORMANCE
-                 ================================================= -->
+            <!-- ========================= -->
+            <!-- MODEL METRICS -->
+            <!-- ========================= -->
 
             <div class="row g-3">
 
-
-                <!-- =================================================
-                     LINEAR REGRESSION
-                     ================================================= -->
+                <!-- Linear Regression -->
 
                 <div class="col-md-6">
 
-                    <div class="card p-4 h-100 analytics-metric-card linear-card">
+                    <div
+                        class="card p-4 border-0 h-100"
+                        style="
+                            background:
+                                radial-gradient(
+                                    circle at top right,
+                                    rgba(156, 108, 255, 0.10),
+                                    transparent 70%
+                                ),
+                                #11151f;
+                        "
+                    >
 
                         <h6 class="text-info fw-bold mb-3">
 
@@ -203,12 +253,16 @@
                         </h6>
 
 
-                        <hr class="border-secondary my-2">
+                        <hr
+                            class="my-2"
+                            style="border-color: rgba(255,255,255,0.08);"
+                        >
 
 
-                        <!-- MAE -->
-
-                        <div class="d-flex justify-content-between py-2 border-bottom border-secondary">
+                        <div
+                            class="d-flex justify-content-between py-2"
+                            style="border-bottom: 1px solid rgba(255,255,255,0.08);"
+                        >
 
                             <span class="text-secondary">
                                 Mean Absolute Error (MAE)
@@ -221,9 +275,10 @@
                         </div>
 
 
-                        <!-- RMSE -->
-
-                        <div class="d-flex justify-content-between py-2 border-bottom border-secondary">
+                        <div
+                            class="d-flex justify-content-between py-2"
+                            style="border-bottom: 1px solid rgba(255,255,255,0.08);"
+                        >
 
                             <span class="text-secondary">
                                 Root Mean Squared Error (RMSE)
@@ -235,8 +290,6 @@
 
                         </div>
 
-
-                        <!-- R2 -->
 
                         <div class="d-flex justify-content-between py-2">
 
@@ -255,13 +308,22 @@
                 </div>
 
 
-                <!-- =================================================
-                     RANDOM FOREST
-                     ================================================= -->
+                <!-- Random Forest -->
 
                 <div class="col-md-6">
 
-                    <div class="card p-4 h-100 analytics-metric-card forest-card">
+                    <div
+                        class="card p-4 border-0 h-100"
+                        style="
+                            background:
+                                radial-gradient(
+                                    circle at top right,
+                                    rgba(16, 185, 129, 0.08),
+                                    transparent 70%
+                                ),
+                                #11151f;
+                        "
+                    >
 
                         <h6 class="text-success fw-bold mb-3">
 
@@ -272,12 +334,16 @@
                         </h6>
 
 
-                        <hr class="border-secondary my-2">
+                        <hr
+                            class="my-2"
+                            style="border-color: rgba(255,255,255,0.08);"
+                        >
 
 
-                        <!-- MAE -->
-
-                        <div class="d-flex justify-content-between py-2 border-bottom border-secondary">
+                        <div
+                            class="d-flex justify-content-between py-2"
+                            style="border-bottom: 1px solid rgba(255,255,255,0.08);"
+                        >
 
                             <span class="text-secondary">
                                 Mean Absolute Error (MAE)
@@ -290,9 +356,10 @@
                         </div>
 
 
-                        <!-- RMSE -->
-
-                        <div class="d-flex justify-content-between py-2 border-bottom border-secondary">
+                        <div
+                            class="d-flex justify-content-between py-2"
+                            style="border-bottom: 1px solid rgba(255,255,255,0.08);"
+                        >
 
                             <span class="text-secondary">
                                 Root Mean Squared Error (RMSE)
@@ -304,8 +371,6 @@
 
                         </div>
 
-
-                        <!-- R2 -->
 
                         <div class="d-flex justify-content-between py-2">
 
@@ -328,22 +393,19 @@
         </div>
 
 
-        <!-- =====================================================
-             RIGHT COLUMN
-             ===================================================== -->
+        <!-- ========================= -->
+        <!-- RIGHT COLUMN -->
+        <!-- ========================= -->
 
         <div class="col-lg-4">
 
+            <!-- Select Asset -->
 
-            <!-- =================================================
-                 SELECT ASSET
-                 ================================================= -->
-
-            <div class="card p-4 mb-4 analytics-sidebar-card">
+            <div class="card p-4 mb-4">
 
                 <h5 class="fw-bold mb-3">
 
-                    <i class="bi bi-search text-primary"></i>
+                    <i class="bi bi-search"></i>
 
                     Select Asset
 
@@ -367,7 +429,7 @@
 
                     <button
                         type="submit"
-                        class="btn btn-primary-gradient analytics-search-btn"
+                        class="btn btn-primary-gradient"
                     >
                         <i class="bi bi-arrow-right"></i>
                     </button>
@@ -377,15 +439,13 @@
             </div>
 
 
-            <!-- =================================================
-                 QUICK ANALYTICS
-                 ================================================= -->
+            <!-- Quick Analytics -->
 
-            <div class="card p-4 mb-4 analytics-sidebar-card">
+            <div class="card p-4 mb-4">
 
                 <h5 class="fw-bold mb-3">
 
-                    <i class="bi bi-lightning-charge text-primary"></i>
+                    <i class="bi bi-lightning-charge"></i>
 
                     Quick Analytics
 
@@ -402,25 +462,39 @@
                             list-group-item
                             list-group-item-action
                             bg-transparent
-                            border-secondary
                             py-3
                             d-flex
                             justify-content-between
                             align-items-center
+                        "
+                        style="
+                            color:
                             {% if selected_symbol == symbol %}
-                            text-white
-                            fw-bold
+                                #ffffff;
                             {% else %}
-                            text-secondary
-                            {% endif %}
+                                #94a3b8;
+                            {% endif %};
+
+                            border-color: rgba(255,255,255,0.08);
                         "
                     >
 
-                        <span>
+                        <span
+                            {% if selected_symbol == symbol %}
+                            style="font-weight: 700;"
+                            {% endif %}
+                        >
                             {{ name }}
                         </span>
 
-                        <span class="badge bg-secondary font-monospace">
+
+                        <span
+                            class="badge font-monospace"
+                            style="
+                                background: #6b7280;
+                                color: #ffffff;
+                            "
+                        >
                             {{ symbol }}
                         </span>
 
@@ -433,15 +507,13 @@
             </div>
 
 
-            <!-- =================================================
-                 UNDERSTANDING STUDIES
-                 ================================================= -->
+            <!-- Understanding Studies -->
 
-            <div class="card p-4 analytics-sidebar-card">
+            <div class="card p-4">
 
                 <h5 class="fw-bold mb-3">
 
-                    <i class="bi bi-mortarboard text-primary"></i>
+                    <i class="bi bi-mortarboard"></i>
 
                     Understanding Studies
 
@@ -453,7 +525,7 @@
                     style="font-size: 13px;"
                 >
 
-                    <strong>
+                    <strong class="text-white">
                         Simple Moving Average (SMA):
                     </strong>
 
@@ -468,7 +540,7 @@
                     style="font-size: 13px;"
                 >
 
-                    <strong>
+                    <strong class="text-white">
                         Relative Strength Index (RSI):
                     </strong>
 
@@ -486,448 +558,13 @@
     </div>
 
 
-    <!-- =====================================================
-         ANALYTICS JAVASCRIPT
-         ===================================================== -->
-
-    <script>
-
-        /*
-         * =====================================================
-         * GET DATA FROM FLASK
-         * =====================================================
-         */
-
-        const dates = {{ dates | tojson }};
-
-        const prices = {{ prices | tojson }};
-
-        const sma20 = {{ indicators.sma20 | tojson }};
-
-        const sma50 = {{ indicators.sma50 | tojson }};
-
-        const rsi = {{ indicators.rsi | tojson }};
-
-
-        /*
-         * =====================================================
-         * GET CANVAS
-         * =====================================================
-         */
-
-        const ctx = document.getElementById("analyticalChart");
-
-
-        /*
-         * =====================================================
-         * CREATE CHART
-         * =====================================================
-         */
-
-        if (ctx && dates.length > 0) {
-
-            const chart = new Chart(ctx, {
-
-                type: "line",
-
-                data: {
-
-                    labels: dates,
-
-                    datasets: [
-
-                        /*
-                         * -------------------------------------
-                         * CLOSE PRICE
-                         * -------------------------------------
-                         */
-
-                        {
-
-                            label: "Close Price",
-
-                            data: prices,
-
-                            borderWidth: 2,
-
-                            borderColor: "#3b82f6",
-
-                            backgroundColor: "transparent",
-
-                            fill: false,
-
-                            tension: 0.1,
-
-                            pointRadius: 0,
-
-                            pointHoverRadius: 4,
-
-                            yAxisID: "yPrice"
-
-                        },
-
-
-                        /*
-                         * -------------------------------------
-                         * SMA 20
-                         * -------------------------------------
-                         */
-
-                        {
-
-                            label: "SMA 20",
-
-                            data: sma20,
-
-                            borderWidth: 1.5,
-
-                            borderColor: "#f59e0b",
-
-                            backgroundColor: "transparent",
-
-                            fill: false,
-
-                            tension: 0.1,
-
-                            pointRadius: 0,
-
-                            pointHoverRadius: 3,
-
-                            hidden: true,
-
-                            yAxisID: "yPrice"
-
-                        },
-
-
-                        /*
-                         * -------------------------------------
-                         * SMA 50
-                         * -------------------------------------
-                         */
-
-                        {
-
-                            label: "SMA 50",
-
-                            data: sma50,
-
-                            borderWidth: 1.5,
-
-                            borderColor: "#8b5cf6",
-
-                            backgroundColor: "transparent",
-
-                            fill: false,
-
-                            tension: 0.1,
-
-                            pointRadius: 0,
-
-                            pointHoverRadius: 3,
-
-                            hidden: true,
-
-                            yAxisID: "yPrice"
-
-                        },
-
-
-                        /*
-                         * -------------------------------------
-                         * RSI 14
-                         * -------------------------------------
-                         */
-
-                        {
-
-                            label: "RSI 14",
-
-                            data: rsi,
-
-                            borderWidth: 1.5,
-
-                            borderColor: "#10b981",
-
-                            backgroundColor: "transparent",
-
-                            fill: false,
-
-                            tension: 0.1,
-
-                            pointRadius: 0,
-
-                            pointHoverRadius: 3,
-
-                            hidden: true,
-
-                            yAxisID: "yRsi"
-
-                        }
-
-                    ]
-
-                },
-
-
-                /*
-                 * =================================================
-                 * CHART OPTIONS
-                 * =================================================
-                 */
-
-                options: {
-
-                    responsive: true,
-
-                    maintainAspectRatio: false,
-
-
-                    interaction: {
-
-                        mode: "index",
-
-                        intersect: false
-
-                    },
-
-
-                    plugins: {
-
-                        legend: {
-
-                            display: true,
-
-                            labels: {
-
-                                color: "#cbd5e1",
-
-                                usePointStyle: true,
-
-                                padding: 18
-
-                            }
-
-                        },
-
-
-                        tooltip: {
-
-                            mode: "index",
-
-                            intersect: false,
-
-                            backgroundColor: "#111827",
-
-                            titleColor: "#f3f4f6",
-
-                            bodyColor: "#e5e7eb",
-
-                            borderColor: "rgba(156, 108, 255, 0.35)",
-
-                            borderWidth: 1,
-
-                            padding: 12
-
-                        }
-
-                    },
-
-
-                    scales: {
-
-                        /*
-                         * -------------------------------------
-                         * X AXIS
-                         * -------------------------------------
-                         */
-
-                        x: {
-
-                            grid: {
-
-                                display: false
-
-                            },
-
-                            ticks: {
-
-                                maxTicksLimit: 10,
-
-                                color: "#8f98a8"
-
-                            },
-
-                            border: {
-
-                                color: "#303746"
-
-                            }
-
-                        },
-
-
-                        /*
-                         * -------------------------------------
-                         * PRICE AXIS
-                         * -------------------------------------
-                         */
-
-                        yPrice: {
-
-                            position: "left",
-
-                            title: {
-
-                                display: true,
-
-                                text: "Price (USD)",
-
-                                color: "#8f98a8"
-
-                            },
-
-                            grid: {
-
-                                color: "rgba(255, 255, 255, 0.04)"
-
-                            },
-
-                            ticks: {
-
-                                color: "#8f98a8"
-
-                            },
-
-                            border: {
-
-                                color: "#303746"
-
-                            }
-
-                        },
-
-
-                        /*
-                         * -------------------------------------
-                         * RSI AXIS
-                         * -------------------------------------
-                         */
-
-                        yRsi: {
-
-                            position: "right",
-
-                            title: {
-
-                                display: true,
-
-                                text: "RSI Scale",
-
-                                color: "#10b981"
-
-                            },
-
-                            min: 0,
-
-                            max: 100,
-
-                            display: false,
-
-                            grid: {
-
-                                display: false
-
-                            },
-
-                            ticks: {
-
-                                color: "#8f98a8"
-
-                            },
-
-                            border: {
-
-                                color: "#303746"
-
-                            }
-
-                        }
-
-                    }
-
-                }
-
-            });
-
-
-            /*
-             * =================================================
-             * SMA 20 TOGGLE
-             * =================================================
-             */
-
-            document
-                .getElementById("toggleSma20")
-                .addEventListener("change", function () {
-
-                    chart.setDatasetVisibility(
-                        1,
-                        this.checked
-                    );
-
-                    chart.update();
-
-                });
-
-
-            /*
-             * =================================================
-             * SMA 50 TOGGLE
-             * =================================================
-             */
-
-            document
-                .getElementById("toggleSma50")
-                .addEventListener("change", function () {
-
-                    chart.setDatasetVisibility(
-                        2,
-                        this.checked
-                    );
-
-                    chart.update();
-
-                });
-
-
-            /*
-             * =================================================
-             * RSI TOGGLE
-             * =================================================
-             */
-
-            document
-                .getElementById("toggleRsi")
-                .addEventListener("change", function () {
-
-                    chart.setDatasetVisibility(
-                        3,
-                        this.checked
-                    );
-
-                    chart.options.scales.yRsi.display =
-                        this.checked;
-
-                    chart.update();
-
-                });
-
-        }
-
-    </script>
-
-
+    <!-- ========================= -->
+    <!-- CHART JAVASCRIPT -->
+    <!-- ========================= -->
+
+   <script>
+const dates = {{ dates | tojson }};
+</script>
 </div>
 
 {% endblock %}
